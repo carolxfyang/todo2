@@ -59,7 +59,7 @@ NSString * const kFinishedFlagTODO = @"finishedFlag";
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [self setHidesBottomBarWhenPushed:YES];
+    [self setHidesBottomBarWhenPushed:NO];
 }
 
 - (void)addTodo{

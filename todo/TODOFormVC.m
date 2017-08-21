@@ -151,10 +151,22 @@ NSString * const kFinishedFlag = @"finishedFlag";
     
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kComment rowType:XLFormRowDescriptorTypeTextView];
     [row.cellConfigAtConfigure setObject:@"Comment" forKey:@"textView.placeholder"];
+    if (values) {
+        NSString *comment = [values valueForKey:kComment];
+        row.value = [comment isKindOfClass:[NSNull class]]?@"":comment;
+    } else {
+        row.value = @"";
+    }
+    [section addFormRow:row];
+    
+    self.form = form;
+    
+    if (values) {
+        self.form.disabled = YES;
+        self.isAdd = NO;
+    } else {
+        self.isAdd = YES;
+    }
 }
-
-
-
-
 
 @end

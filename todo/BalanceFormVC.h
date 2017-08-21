@@ -8,6 +8,16 @@
 
 #import <XLForm/XLForm.h>
 
+@protocol BalanceFormDelegate
+
+- (void) callback;
+
+@end
+
 @interface BalanceFormVC: XLFormViewController
+
+- (instancetype)initWithValues:(NSDictionary *)values;
+
+@property (nonatomic, weak) id<BalanceFormDelegate> callbackDelegate;
 
 @end
