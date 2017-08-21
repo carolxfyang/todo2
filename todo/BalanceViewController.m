@@ -133,7 +133,16 @@
     return @[deleteRowAction];
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSDictionary *data = [self.listItemArray objectAtIndex:indexPath.row];
+    
+    [self setHidesBottomBarWhenPushed:YES];
+    
+    BalanceFormVC *newBalance = [[BalanceFormVC alloc]initWithValues:data];
+    newBalance.callbackDelegate = self;
+    [self.navigationController pushViewController:newBalance animated:YES];
+}
 
 
 @end
