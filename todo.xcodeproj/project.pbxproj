@@ -12,6 +12,7 @@
 		4DDB9BEE1F4A78AB00727928 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB9BED1F4A78AB00727928 /* Assets.xcassets */; };
 		4DDB9BF41F4A78AB00727928 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB9BF31F4A78AB00727928 /* main.m */; };
 		4DDB9BFC1F4A805500727928 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB9BFB1F4A805500727928 /* MainViewController.m */; };
+		4DDB9BFF1F4A854B00727928 /* BalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB9BFE1F4A854B00727928 /* BalanceViewController.m */; };
 		FDD3575DC9C863FCED137B43 /* libPods-todo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5BC06EBBB66FDFBD4C1B70 /* libPods-todo.a */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,8 @@
 		4DDB9BF31F4A78AB00727928 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4DDB9BFA1F4A802F00727928 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		4DDB9BFB1F4A805500727928 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		4DDB9BFD1F4A853300727928 /* BalanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BalanceViewController.h; sourceTree = "<group>"; };
+		4DDB9BFE1F4A854B00727928 /* BalanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BalanceViewController.m; sourceTree = "<group>"; };
 		6A5BC06EBBB66FDFBD4C1B70 /* libPods-todo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-todo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38FC6268381622CC76C94EE /* Pods-todo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todo.release.xcconfig"; path = "Pods/Target Support Files/Pods-todo/Pods-todo.release.xcconfig"; sourceTree = "<group>"; };
 		A6A49476E23840271B04867D /* Pods-todo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-todo/Pods-todo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 				4DDB9BE51F4A78AB00727928 /* AppDelegate.m */,
 				4DDB9BFA1F4A802F00727928 /* MainViewController.h */,
 				4DDB9BFB1F4A805500727928 /* MainViewController.m */,
+				4DDB9BFD1F4A853300727928 /* BalanceViewController.h */,
+				4DDB9BFE1F4A854B00727928 /* BalanceViewController.m */,
 				4DDB9BE71F4A78AB00727928 /* TODOViewController.h */,
 				4DDB9BE81F4A78AB00727928 /* TODOViewController.m */,
 				4DDB9BED1F4A78AB00727928 /* Assets.xcassets */,
@@ -222,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DDB9BE91F4A78AB00727928 /* TODOViewController.m in Sources */,
+				4DDB9BFF1F4A854B00727928 /* BalanceViewController.m in Sources */,
 				4DDB9BF41F4A78AB00727928 /* main.m in Sources */,
 				4DDB9BE61F4A78AB00727928 /* AppDelegate.m in Sources */,
 				4DDB9BFC1F4A805500727928 /* MainViewController.m in Sources */,
