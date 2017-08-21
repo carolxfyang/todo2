@@ -1,0 +1,25 @@
+PODS:
+  - AMap2DMap (4.6.0):
+    - AMapFoundation (~> 1.3)
+  - AMapFoundation (1.4.1)
+  - AMapLocation (2.4.0):
+    - AMapFoundation (~> 1.4)
+  - MJRefresh (3.1.12)
+  - XLForm (3.3.0)
+
+DEPENDENCIES:
+  - AMap2DMap
+  - AMapLocation
+  - MJRefresh
+  - XLForm (~> 3.0)
+
+SPEC CHECKSUMS:
+  AMap2DMap: 003fa70526983a1469ae6fc3323a6ee8b5ccf53c
+  AMapFoundation: 9cc5198980873cca29bb70466a84b3bd922c0e65
+  AMapLocation: 47b62b5381a66e4d0c2931b70ffde72682427896
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  XLForm: d5c391dfc62865927b5bcab0a5a0dbfb3e02b0ec
+
+PODFILE CHECKSUM: 8b92dc071860c13b7d33637f03f7fcd84aba2096
+
+COCOAPODS: 1.3.0.rc.1
