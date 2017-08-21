@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TODOViewController : UIViewController
-
+@interface TODOViewController : UITableViewController
 
 @end
 
