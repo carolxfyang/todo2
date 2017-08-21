@@ -6,13 +6,18 @@
 //  Copyright © 2017年 carolxfyang. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TODOViewController.h"
+#import "MJRefresh.h"
 
-@interface ViewController ()
+NSString * const kFinishedFlagTODO = @"finishedFlag";
+
+@interface TODOViewController()<TODOFormDelegate>
+
+@property(nonatomic, strong) NSArray *listItemArray;
 
 @end
 
-@implementation ViewController
+@implementation TODOViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainViewController.h
 //  todo
 //
 //  Created by icbc on 2017/8/21.
@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TODOViewController.h"
 
-@interface ViewController : UIViewController
-
+@interface MainViewController: UITabBarController
 
 @end
 
