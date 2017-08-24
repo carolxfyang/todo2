@@ -7,6 +7,7 @@
 //
 
 #import "TODOFormVC.h"
+#import <UserNotifications/UserNotifications.h>
 
 NSString * const ktitle = @"title";
 NSString * const kEndTime = @"endTime";
@@ -82,6 +83,7 @@ NSString * const kFinishedFlag = @"finishedFlag";
 }
 
 - (void)addTodo {
+    
     NSDictionary *values = [self.form formValues];
     
     NSString *todoPath = [self getTodoPlistPath];
@@ -112,8 +114,13 @@ NSString * const kFinishedFlag = @"finishedFlag";
     
     [NSKeyedArchiver archiveRootObject:listItemArray toFile:todoPath];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    //[self addNotifaication];
     
+    NSNumber *alertFlag = [self.form.formValues valueForKey:kAlertFlag];
+    if ([alertFlag isEqualToNumber:@1]) {
+        [self registerNotification];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
     [self.callbackDelegate callback];
 }
 
@@ -126,6 +133,17 @@ NSString * const kFinishedFlag = @"finishedFlag";
     
     section = [XLFormSectionDescriptor formSection];
     [form addFormSection:section];
+    
+    // 标题
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:ktitle rowType:XLFormRowDescriptorTypeText];
+    [row.cellConfigAtConfigure setObject:@"Title" forKey:@"textField.placeholder"];
+    //row.required = true;
+    if(values){
+        NSString *title = [values objectForKey:ktitle];
+        row.value = [title isKindOfClass:[NSNull class]]?@"":title;
+    }
+    //row.requireMsg = @"不能为空";
+    [section addFormRow:row];
     
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kEndTime rowType:XLFormRowDescriptorTypeDateTimeInline title:@"Due"];
     
@@ -167,6 +185,45 @@ NSString * const kFinishedFlag = @"finishedFlag";
     } else {
         self.isAdd = YES;
     }
+}
+
+
+
+-(void)registerNotification{
+    
+    // 使用 UNUserNotificationCenter 来管理通知
+    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+    
+    //需创建一个包含待通知内容的 UNMutableNotificationContent 对象，注意不是 UNNotificationContent ,此对象为不可变对象。
+    UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
+    NSString *title = [self.form.formValues valueForKey:ktitle];
+    content.title = title==nil?@" ":title;
+    NSString *body = [self.form.formValues valueForKey:kComment];
+    content.body = body==nil?@" ":body;
+    content.sound = [UNNotificationSound defaultSound];
+    
+    NSDate *endTime = [self.form.formValues valueForKey:kEndTime];
+    
+    NSTimeInterval interval = [endTime timeIntervalSinceDate:[NSDate new]];
+    
+    //interval = 10;
+    
+    // 在 alertTime 后推送本地推送
+    UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger
+                                                  triggerWithTimeInterval:interval repeats:NO];
+    
+    NSString *alertId = [NSString stringWithFormat:@"alertid_%@",[self.form.formValues valueForKey:kItemIndex]];
+    
+    UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:alertId
+                                                                          content:content trigger:trigger];
+    
+    //添加推送成功后的处理！
+    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"本地通知" message:@"成功添加推送" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:cancelAction];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+    }];
 }
 
 @end

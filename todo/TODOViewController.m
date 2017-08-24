@@ -27,7 +27,6 @@ NSString * const kFinishedFlagTODO = @"finishedFlag";
     
     self.edgesForExtendedLayout = UIRectEdgeBottom;
     self.navigationController.view.backgroundColor = [UIColor whiteColor];
-    
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"TODO";
     
@@ -108,7 +107,7 @@ NSString * const kFinishedFlagTODO = @"finishedFlag";
     if ([dict valueForKey:kFinishedFlagTODO]) {
         cell.imageView.image = [UIImage imageNamed:@"todo_finished"];
     }else{
-        cell.imageView.image = [UIImage imageNamed:@"todo_unfinishied"];
+        cell.imageView.image = [UIImage imageNamed:@"todo_unfinished"];
     }
     
     cell.textLabel.text = [dict valueForKey:@"title"] == nil?@"":[dict valueForKey:@"title"];
@@ -156,7 +155,6 @@ NSString * const kFinishedFlagTODO = @"finishedFlag";
     newTodo.callbackDelegate = self;
     [self.navigationController pushViewController:newTodo animated:YES];
 }
-
 
 
 - (void)didReceiveMemoryWarning {
