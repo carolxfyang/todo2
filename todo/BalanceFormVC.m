@@ -115,8 +115,6 @@ NSString * const kFinishedFlagB = @"finishedFlag";
     
     [NSKeyedArchiver archiveRootObject:listItemArray toFile:balancePath];
     
-    [self addNotification];
-    
     [self.navigationController popViewControllerAnimated:YES];
     
     [self.callbackDelegate callback];
@@ -188,37 +186,7 @@ NSString * const kFinishedFlagB = @"finishedFlag";
     }
 }
 
-- (void) addNotification {
-    
-    NSNumber *alertFlag = [self.formData valueForKey:kAlertFlagB];
-    if (![alertFlag isEqualToNumber:@1]) {
-        return;
-    }
-    
-    //第二步：新建通知内容对象
-    UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
-    content.title = @"代办提醒";
-    content.subtitle = [self.formData valueForKey:ktitleB];
-    NSString *body = [self.formData valueForKey:kCommentB];
-    content.body = body?@"":body;
-    content.badge = @1;
-    NSDateComponents *date = [self.formData valueForKey:kEndTimeB];
-    UNNotificationSound *sound = [UNNotificationSound soundNamed:@"caodi.m4a"];
-    content.sound = sound;
-    
-    //第三步：通知触发机制。（重复提醒，时间间隔要大于60s）
-    UNCalendarNotificationTrigger *tigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:date repeats:NO];
-    
-    //第四步：创建UNNotificationRequest通知请求对象
-    NSString *requertIdentifier = @"RequestIdentifier";
-    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:requertIdentifier content:content trigger:tigger];
-    
-    //第五步：将通知加到通知中心
-    [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
-        NSLog(@"Error:%@",error);
-        
-    }];
-}
+
 
    
 @end
