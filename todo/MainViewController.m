@@ -24,11 +24,11 @@
     
     BalanceViewController *balanceVC = [[BalanceViewController alloc]init];
     UINavigationController *balanceNC = [[UINavigationController alloc]initWithRootViewController:balanceVC];
-    UITabBarItem *balanceTBI = [[UITabBarItem alloc]initWithTitle:@"Balance" image:[UIImage imageNamed:@"Balance"] tag:1];
+    UITabBarItem *balanceTBI = [[UITabBarItem alloc]initWithTitle:@"Balance" image:[UIImage imageNamed:@"balance"] tag:1];
     balanceNC.tabBarItem = balanceTBI;
     
     [self setViewControllers:@[todoNC,balanceNC] animated:YES];
-    
+
 }
 
 - (void)didReceiveMemoryWarning{

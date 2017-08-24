@@ -8,12 +8,12 @@
 
 #import "BalanceFormVC.h"
 
-NSString * const ktitle = @"title";
-NSString * const kEndTime = @"endTime";
-NSString * const kAlertFlag = @"alertFlag";
-NSString * const kComment = @"comment";
-NSString * const kItemIndex = @"itemIndex";
-NSString * const kFinishedFlag = @"finishedFlag";
+NSString * const ktitleB = @"title";
+NSString * const kEndTimeB = @"endTime";
+NSString * const kAlertFlagB = @"alertFlag";
+NSString * const kCommentB = @"comment";
+NSString * const kItemIndexB = @"itemIndex";
+NSString * const kFinishedFlagB = @"finishedFlag";
 
 @interface BalanceFormVC()
 
@@ -64,13 +64,13 @@ NSString * const kFinishedFlag = @"finishedFlag";
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSNumber *index = [defaults valueForKey:kItemIndex];
+    NSNumber *index = [defaults valueForKey:kItemIndexB];
     
     if (index == nil) {
         index = [[NSNumber alloc]initWithInt:1];
     }
     currentIndex = index?index.intValue:1;
-    [defaults setValue:[[NSNumber alloc]initWithInt:(currentIndex+1)] forKey:kItemIndex];
+    [defaults setValue:[[NSNumber alloc]initWithInt:(currentIndex+1)] forKey:kItemIndexB];
     [defaults synchronize];
     
     NSMutableArray *listItemArray = [NSKeyedUnarchiver unarchiveObjectWithFile:balancePath];
@@ -80,7 +80,7 @@ NSString * const kFinishedFlag = @"finishedFlag";
     }
     
     NSMutableDictionary *mdict = [[NSMutableDictionary alloc]initWithDictionary:values];
-    [mdict setValue:index forKey:kItemIndex];
+    [mdict setValue:index forKey:kItemIndexB];
     
     [listItemArray addObject:mdict];
     
@@ -101,20 +101,20 @@ NSString * const kFinishedFlag = @"finishedFlag";
     section = [XLFormSectionDescriptor formSection];
     [form addFormSection:section];
     
-    row = [XLFormRowDescriptor formRowDescriptorWithTag:kEndTime rowType:XLFormRowDescriptorTypeDateTimeInline title:@"time"];
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:kEndTimeB rowType:XLFormRowDescriptorTypeDateTimeInline title:@"time"];
     
     if (values) {
-        row.value = [values objectForKey:kEndTime];
+        row.value = [values objectForKey:kEndTimeB];
     } else {
         row.value = [NSDate dateWithTimeIntervalSinceNow:60*60*24];
     }
     [section addFormRow:row];
     
-    row = [XLFormRowDescriptor formRowDescriptorWithTag:kComment rowType:XLFormRowDescriptorTypeText];
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:kCommentB rowType:XLFormRowDescriptorTypeText];
     [row.cellConfigAtConfigure setObject:@"Amount" forKey:@"textView.placeholer"];
 
     if (values) {
-        NSString *amount = [values valueForKey:kComment];
+        NSString *amount = [values valueForKey:kCommentB];
         row.value = [amount isKindOfClass:[NSNull class]]?@"":amount;
     } else {
         row.value = @"";
@@ -123,10 +123,10 @@ NSString * const kFinishedFlag = @"finishedFlag";
     [section addFormRow:row];
     
     row = [XLFormRowDescriptor formRowDescriptorWithTag:@"where" rowType:XLFormRowDescriptorTypeText];
-    [row.cellConfigAtConfigure setObject:kComment forKey:@"textView.placeholder"];
+    [row.cellConfigAtConfigure setObject:kCommentB forKey:@"textView.placeholder"];
     
     if (values) {
-        NSString *comment = [values valueForKey:kComment];
+        NSString *comment = [values valueForKey:kCommentB];
         row.value = [comment isKindOfClass:[NSNull class]]?@"":comment;
     } else {
         row.value = @"";
@@ -144,6 +144,6 @@ NSString * const kFinishedFlag = @"finishedFlag";
     }
 }
    
-   
+
    
 @end

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DA9B7871F4E73120015FDD3 /* balance@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA9B7821F4E73120015FDD3 /* balance@2x.png */; };
+		4DA9B7881F4E73120015FDD3 /* balance@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA9B7831F4E73120015FDD3 /* balance@3x.png */; };
+		4DA9B7891F4E73120015FDD3 /* todo_finished@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA9B7841F4E73120015FDD3 /* todo_finished@2x.png */; };
+		4DA9B78A1F4E73120015FDD3 /* todo_finished@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA9B7851F4E73120015FDD3 /* todo_finished@3x.png */; };
+		4DA9B78B1F4E73120015FDD3 /* todo_unfinished@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA9B7861F4E73120015FDD3 /* todo_unfinished@2x.png */; };
+		4DA9B78F1F4E731D0015FDD3 /* todo_unfinished@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA9B78C1F4E731D0015FDD3 /* todo_unfinished@3x.png */; };
+		4DA9B7901F4E731D0015FDD3 /* todolist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA9B78D1F4E731D0015FDD3 /* todolist@2x.png */; };
+		4DA9B7911F4E731D0015FDD3 /* todolist@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DA9B78E1F4E731D0015FDD3 /* todolist@3x.png */; };
 		4DDB9BE61F4A78AB00727928 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB9BE51F4A78AB00727928 /* AppDelegate.m */; };
 		4DDB9BE91F4A78AB00727928 /* TODOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB9BE81F4A78AB00727928 /* TODOViewController.m */; };
 		4DDB9BEE1F4A78AB00727928 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB9BED1F4A78AB00727928 /* Assets.xcassets */; };
@@ -19,6 +27,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4DA9B7821F4E73120015FDD3 /* balance@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "balance@2x.png"; sourceTree = "<group>"; };
+		4DA9B7831F4E73120015FDD3 /* balance@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "balance@3x.png"; sourceTree = "<group>"; };
+		4DA9B7841F4E73120015FDD3 /* todo_finished@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "todo_finished@2x.png"; sourceTree = "<group>"; };
+		4DA9B7851F4E73120015FDD3 /* todo_finished@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "todo_finished@3x.png"; sourceTree = "<group>"; };
+		4DA9B7861F4E73120015FDD3 /* todo_unfinished@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "todo_unfinished@2x.png"; sourceTree = "<group>"; };
+		4DA9B78C1F4E731D0015FDD3 /* todo_unfinished@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "todo_unfinished@3x.png"; sourceTree = "<group>"; };
+		4DA9B78D1F4E731D0015FDD3 /* todolist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "todolist@2x.png"; sourceTree = "<group>"; };
+		4DA9B78E1F4E731D0015FDD3 /* todolist@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "todolist@3x.png"; sourceTree = "<group>"; };
 		4DDB9BE11F4A78AB00727928 /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDB9BE41F4A78AB00727928 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4DDB9BE51F4A78AB00727928 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,6 +89,14 @@
 		4DDB9BE31F4A78AB00727928 /* todo */ = {
 			isa = PBXGroup;
 			children = (
+				4DA9B78C1F4E731D0015FDD3 /* todo_unfinished@3x.png */,
+				4DA9B78D1F4E731D0015FDD3 /* todolist@2x.png */,
+				4DA9B78E1F4E731D0015FDD3 /* todolist@3x.png */,
+				4DA9B7821F4E73120015FDD3 /* balance@2x.png */,
+				4DA9B7831F4E73120015FDD3 /* balance@3x.png */,
+				4DA9B7841F4E73120015FDD3 /* todo_finished@2x.png */,
+				4DA9B7851F4E73120015FDD3 /* todo_finished@3x.png */,
+				4DA9B7861F4E73120015FDD3 /* todo_unfinished@2x.png */,
 				4DDB9BE41F4A78AB00727928 /* AppDelegate.h */,
 				4DDB9BE51F4A78AB00727928 /* AppDelegate.m */,
 				4DDB9BFA1F4A802F00727928 /* MainViewController.h */,
@@ -169,7 +193,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DA9B78F1F4E731D0015FDD3 /* todo_unfinished@3x.png in Resources */,
+				4DA9B7911F4E731D0015FDD3 /* todolist@3x.png in Resources */,
+				4DA9B78A1F4E73120015FDD3 /* todo_finished@3x.png in Resources */,
+				4DA9B7891F4E73120015FDD3 /* todo_finished@2x.png in Resources */,
 				4DDB9BEE1F4A78AB00727928 /* Assets.xcassets in Resources */,
+				4DA9B7881F4E73120015FDD3 /* balance@3x.png in Resources */,
+				4DA9B7871F4E73120015FDD3 /* balance@2x.png in Resources */,
+				4DA9B7901F4E731D0015FDD3 /* todolist@2x.png in Resources */,
+				4DA9B78B1F4E73120015FDD3 /* todo_unfinished@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,10 +391,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = todo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kokokod.hellow.todo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -372,10 +405,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = todo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kokokod.hellow.todo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
