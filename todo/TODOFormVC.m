@@ -145,6 +145,9 @@ NSString * const kFinishedFlag = @"finishedFlag";
     //row.requireMsg = @"不能为空";
     [section addFormRow:row];
     
+    section = [XLFormSectionDescriptor formSection];
+    [form addFormSection:section];
+    
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kEndTime rowType:XLFormRowDescriptorTypeDateTimeInline title:@"Due"];
     
     if (values) {
