@@ -82,6 +82,8 @@ NSString * const kFinishedFlagB = @"finishedFlag";
     
     if (listItemArray==nil) {
         listItemArray = [NSMutableArray arrayWithCapacity:100];
+    }else{
+        listItemArray = [[NSMutableArray alloc]initWithArray:listItemArray];
     }
     
     NSMutableDictionary *mDict = [[NSMutableDictionary alloc]initWithDictionary:values];
