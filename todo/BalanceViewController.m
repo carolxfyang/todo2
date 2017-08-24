@@ -104,11 +104,7 @@ NSString * const kFinishedFlagBalance = @"finishedFlag";
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:idetifier];
     }
     NSDictionary *dict = [self.listItemArray objectAtIndex:indexPath.row];
-    if ([dict valueForKey:kFinishedFlagBalance]) {
-        cell.imageView.image = [UIImage imageNamed:@"balance_finished"];
-    }else{
-        cell.imageView.image = [UIImage imageNamed:@"balance_unfinishied"];
-    }
+    cell.imageView.image = [UIImage imageNamed:@"balance"];
     
     cell.textLabel.text = [dict valueForKey:@"title"] == nil?@"":[dict valueForKey:@"title"];
     
