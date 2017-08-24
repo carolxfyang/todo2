@@ -51,37 +51,13 @@ NSString * const kFinishedFlagB = @"finishedFlag";
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (self.formData) {
-        if (![self.formData objectForKey:kFinishedFlagB]) {
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"OK" style:UIBarButtonItemStylePlain target:self action:@selector(done)];
-        }
+        
         self.navigationItem.title = @"information";
     }else{
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"OK" style:UIBarButtonItemStylePlain target:self action:@selector(addBalance)];
         self.navigationItem.title = @"Add";
     }
 }
-
-- (void)done {
-    NSNumber *itemIndex = [self.formData valueForKey:kItemIndexB];
-    
-    NSString *balancePath = [self getBalancePlistPath];
-    
-    NSMutableArray *listItemArray = [NSKeyedUnarchiver unarchiveObjectWithFile:balancePath];
-    
-    if (listItemArray!=nil) {
-        for (NSMutableDictionary *dictItem in listItemArray) {
-            if ([[dictItem valueForKey:kItemIndexB] isEqualToNumber:itemIndex]) {
-                [dictItem setValue:@YES forKey:kFinishedFlagB];
-                break;
-            }
-        }
-        [NSKeyedArchiver archiveRootObject:listItemArray toFile:balancePath];
-    }
-    [self.navigationController popViewControllerAnimated:YES];
-    
-    [self.callbackDelegate callback];
-}
-
 
     
 - (void)addBalance {
