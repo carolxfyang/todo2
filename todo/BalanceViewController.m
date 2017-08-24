@@ -57,6 +57,35 @@ NSString * const kFinishedFlagBalance = @"finishedFlag";
     
 }
 
+- (void)deleteItem:(NSNumber *)itemIndex {
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+    NSString *balancePath = [docPath stringByAppendingPathComponent:@"balance.plist"];
+    
+    self.listItemArray = [NSKeyedUnarchiver unarchiveObjectWithFile:balancePath];
+    
+    if (self.listItemArray == nil) {
+        self.listItemArray = [NSMutableArray arrayWithCapacity:100];
+    }
+    
+    NSMutableArray *tempArr = [[NSMutableArray alloc]initWithArray:self.listItemArray];
+    
+    
+    [tempArr removeObjectAtIndex:[itemIndex integerValue]];
+            
+    
+    self.listItemArray = [[NSArray alloc]initWithArray:tempArr];
+    
+    
+    self.listItemArray = [self.listItemArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2){
+        NSComparisonResult result = [[obj1 objectForKey:@"endTime"] compare:[obj2 objectForKey:@"endTime"]];
+        return result;
+    }];
+    
+    [NSKeyedArchiver archiveRootObject:self.listItemArray toFile:balancePath];
+    
+    [self.tableView.mj_header beginRefreshing];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [self setHidesBottomBarWhenPushed:NO];
 }
@@ -134,6 +163,7 @@ NSString * const kFinishedFlagBalance = @"finishedFlag";
 - (NSArray *)tableView:(UITableView *)tableView  editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         NSLog(@"Delete");
+        [self deleteItem:[NSNumber numberWithInteger:indexPath.row]];
     }];
     
     return @[deleteRowAction];
