@@ -86,6 +86,17 @@ NSString * const kFinishedFlagTODO = @"finishedFlag";
     [self.tableView.mj_header beginRefreshing];
 }
 
+- (void)itemComplete:(NSNumber *)itemIndex {
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+    NSString *todoPath = [docPath stringByAppendingPathComponent:@"todo.plist"];
+    
+    self.listItemArray = [NSKeyedUnarchiver unarchiveObjectWithFile:todoPath];
+    
+    if (self.listItemArray == nil) {
+        self.listItemArray = [NSMutableArray arrayWithCapacity:100];
+    }
+    
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self setHidesBottomBarWhenPushed:NO];
