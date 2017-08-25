@@ -85,30 +85,25 @@ NSString * const kFinishedFlagTODO = @"finishedFlag";
     
     [self.tableView.mj_header beginRefreshing];
 }
-    
+
+
 - (void)itemComplete:(NSNumber *)itemIndex {
+    
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
     NSString *todoPath = [docPath stringByAppendingPathComponent:@"todo.plist"];
     
     self.listItemArray = [NSKeyedUnarchiver unarchiveObjectWithFile:todoPath];
     
-    if (self.listItemArray == nil) {
-        self.listItemArray = [NSMutableArray arrayWithCapacity:100];
-    }
-    
-    NSMutableArray *temArr = [[NSMutableArray alloc]initWithArray:self.listItemArray];
-    
-    if (temArr != nil) {
-        for (NSMutableDictionary *dictItem in temArr) {
-            if ([[dictItem valueForKey:@"itemIndex"] isEqualToNumber:itemIndex]) {
-                [dictItem setValue:@YES forKey:kFinishedFlagTODO];
-                break;
-            }
+    if (self.listItemArray != nil) {
+        for (NSMutableDictionary *dictItem in self.listItemArray) {
+            [dictItem setValue:@YES forKey:kFinishedFlagTODO];
+            break;
         }
-        [NSKeyedArchiver archiveRootObject:temArr toFile:todoPath];
     }
+    [NSKeyedArchiver archiveRootObject:self.listItemArray toFile:todoPath];
+    
     [self.tableView.mj_header beginRefreshing];
-}
+   }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self setHidesBottomBarWhenPushed:NO];
@@ -197,6 +192,8 @@ NSString * const kFinishedFlagTODO = @"finishedFlag";
     }];
     UITableViewRowAction *doneRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"complete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         NSLog(@"complete");
+        
+        [self itemComplete:[NSNumber numberWithInteger:indexPath.row]];
     }];
     doneRowAction.backgroundColor = [UIColor colorWithRed:0 green:124/255.0 blue:223/255.0 alpha:1];
     return @[deleteRowAction,doneRowAction];
