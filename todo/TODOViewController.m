@@ -85,7 +85,7 @@ NSString * const kFinishedFlagTODO = @"finishedFlag";
     
     [self.tableView.mj_header beginRefreshing];
 }
-
+    
 - (void)itemComplete:(NSNumber *)itemIndex {
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
     NSString *todoPath = [docPath stringByAppendingPathComponent:@"todo.plist"];
@@ -96,6 +96,18 @@ NSString * const kFinishedFlagTODO = @"finishedFlag";
         self.listItemArray = [NSMutableArray arrayWithCapacity:100];
     }
     
+    NSMutableArray *temArr = [[NSMutableArray alloc]initWithArray:self.listItemArray];
+    
+    if (temArr != nil) {
+        for (NSMutableDictionary *dictItem in temArr) {
+            if ([[dictItem valueForKey:@"itemIndex"] isEqualToNumber:itemIndex]) {
+                [dictItem setValue:@YES forKey:kFinishedFlagTODO];
+                break;
+            }
+        }
+        [NSKeyedArchiver archiveRootObject:temArr toFile:todoPath];
+    }
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
