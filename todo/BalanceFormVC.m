@@ -118,6 +118,9 @@ NSString * const kFinishedFlagB = @"finishedFlag";
     //row.requireMsg = @"不能为空";
     [section addFormRow:row];
     
+    section = [XLFormSectionDescriptor formSection];
+    [form addFormSection:section];
+    
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kCommentB rowType:XLFormRowDescriptorTypeText];
     [row.cellConfigAtConfigure setObject:@"Amount" forKey:@"textField.placeholder"];
     
@@ -143,6 +146,9 @@ NSString * const kFinishedFlagB = @"finishedFlag";
         row.value = [location isKindOfClass:[NSNull class]]?@"":location;
     }
     [section addFormRow:row];
+    
+    section = [XLFormSectionDescriptor formSection];
+    [form addFormSection:section];
     
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kCommentB rowType:XLFormRowDescriptorTypeTextView];
     [row.cellConfigAtConfigure setObject:@"Comment" forKey:@"textView.placeholder"];
